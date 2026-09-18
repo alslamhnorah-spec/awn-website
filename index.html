@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>عون الرفد | حلول المشتريات وسلاسل الإمداد</title>
+    <!-- استدعاء خط Cairo المعتمد -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <!-- آيقونات FontAwesome للأيقونات ورمز الواتساب -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --primary-green: #a1d28d;
+            --secondary-yellow: #d8d96f;
+            --secondary-teal1: #5ecab2;
+            --secondary-teal2: #2fc4cc;
+            --text-black: #000000;
+            --bg-light: #f9fbf9;
+            --white: #ffffff;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Cairo', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-light);
+            color: var(--text-black);
+            line-height: 1.8;
+        }
+
+        /* الهيدر وشعار الشركة */
+        header {
+            background-color: var(--white);
+            padding: 20px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-text {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--text-black);
+            letter-spacing: 1px;
+        }
+
+        .logo-plus {
+            font-size: 2rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--secondary-teal2), var(--primary-green), var(--secondary-yellow));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .company-subtitle {
+            font-size: 0.85rem;
+            color: #555;
+            font-weight: 600;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 80px 8%;
+            text-align: center;
+            background: linear-gradient(180deg, rgba(161, 210, 141, 0.15) 0%, rgba(255,255,255,0) 100%);
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 15px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 30px auto;
+            color: #333;
+        }
+
+        /* البطاقات (الرؤية والرسالة) */
+        .section-cards {
+            padding: 40px 8%;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .card {
+            background-color: var(--white);
+            padding: 35px;
+            border-radius: 16px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+            border-top: 5px solid var(--primary-green);
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card h2 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--text-black);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .card h2 i {
+            color: var(--secondary-teal1);
+        }
+
+        /* القيم الجوهرية */
+        .values-section {
+            padding: 60px 8%;
+            background-color: var(--white);
+            text-align: center;
+            margin: 40px 0;
+        }
+
+        .values-section h2 {
+            font-size: 2rem;
+            margin-bottom: 40px;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .value-box {
+            padding: 25px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, rgba(161, 210, 141, 0.1), rgba(47, 196, 204, 0.1));
+            border: 1px solid rgba(161, 210, 141, 0.3);
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--text-black);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .value-box i {
+            color: var(--secondary-teal2);
+        }
+
+        /* التذييل ومعلومات التواصل */
+        footer {
+            background-color: #111;
+            color: #fff;
+            padding: 50px 8% 20px 8%;
+            text-align: center;
+        }
+
+        .footer-info {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .footer-info item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* زر الواتساب الثابت في الأسفل */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            background-color: #25d366;
+            color: white;
+            border-radius: 50px;
+            padding: 12px 24px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.05);
+            background-color: #20ba5a;
+            color: white;
+        }
+
+        .whatsapp-float i {
+            font-size: 1.5rem;
+        }
+
+        /* التجاوب مع الجوال */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                text-align: center;
+                gap: 10px;
+            }
+            .hero h1 { font-size: 1.8rem; }
+            .whatsapp-float {
+                bottom: 20px;
+                left: 20px;
+                padding: 10px 18px;
+                font-size: 0.95rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- الهيدر -->
+    <header>
+        <div class="logo-container">
+            <span class="logo-plus">+</span>
+            <span class="logo-text">AWN</span>
+        </div>
+        <div class="company-subtitle">
+            شركة عون الرفد لحلول المشتريات وسلاسل الإمداد
+        </div>
+    </header>
+
+    <!-- القسم الرئيسي -->
+    <section class="hero">
+        <h1>شريككم الاستراتيجي في حلول المشتريات</h1>
+        <p>نمكّن الشركات من إدارة عملياتها الشرائية بأعلى معايير الاحترافية والشفافية عبر خبرات متخصصة وحلول عملية مدروسة.</p>
+    </section>
+
+    <!-- الرؤية والرسالة -->
+    <section class="section-cards">
+        <div class="card">
+            <h2><i class="fa-solid font-eye"></i> الرؤية</h2>
+            <p>أن نكون الشريك الاستراتيجي الأول والموثوق في تقديم حلول المشتريات وسلاسل الإمداد المبتكرة على مستوى المملكة.</p>
+        </div>
+        <div class="card">
+            <h2><i class="fa-solid font-bullseye"></i> الرسالة</h2>
+            <p>تمكين الشركات من إدارة عملياتها الشرائية بأعلى معايير الاحترافية والشفافية عبر خبرات متخصصة وحلول عملية مدروسة.</p>
+        </div>
+    </section>
+
+    <!-- القيم الجوهرية -->
+    <section class="values-section">
+        <h2>قيمنا الجوهرية</h2>
+        <div class="values-grid">
+            <div class="value-box"><i class="fa-solid fa-lightbulb"></i> الابتكار</div>
+            <div class="value-box"><i class="fa-solid fa-handshake"></i> الالتزام</div>
+            <div class="value-box"><i class="fa-solid fa-chart-line"></i> الكفاءة</div>
+            <div class="value-box"><i class="fa-solid fa-shield-halved"></i> الشفافية</div>
+        </div>
+    </section>
+
+    <!-- التذييل -->
+    <footer>
+        <p style="margin-bottom: 10px;">شركة عون الرفد لحلول المشتريات وسلاسل الإمداد</p>
+        <p style="font-size: 0.85rem; color: #aaa;">المقر الرئيسي | الرياض</p>
+        <p style="font-size: 0.8rem; color: #666; margin-top: 20px;">جميع الحقوق محفوظة &copy; 2026</p>
+    </footer>
+
+    <!-- زر الواتساب المباشر (قم بتغيير الرقم أدناه لرقامكم) -->
+    <!-- صيغة الرقم الدولية بدون صفر أو علامة + (مثال: 966567673218) -->
+    <a href="https://wa.me/966567673218?text=السلام%20علكم،%20أود%20الاستفسار%20عن%20خدمات%20شركة%20عون" class="whatsapp-float" target="_blank">
+        <i class="fa-brands fa-whatsapp"></i>
+        تواصل معنا
+    </a>
+
+</body>
+</html>
